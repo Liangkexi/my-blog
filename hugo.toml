@@ -9,7 +9,10 @@ enableRobotsTXT = true
   avatarURL = "/images/avatar.png"
   avatarAltText = "LiangKX"
   avatarSize = "size-m"
-  description = "世界和平贡献者"
+  description = """
+从小就喜欢吹牛，花了毕生养成的习惯难以改变
+世界和平贡献者
+"""
   footer = "LiangKX"
   showBackToTopButton = true
 
@@ -23,6 +26,11 @@ enableRobotsTXT = true
     <style>
       html {
         font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
+      }
+
+      /* Render newlines in home description */
+      .home-about h2 {
+        white-space: pre-line;
       }
 
       /* Only change links inside article content (not list pages) */
