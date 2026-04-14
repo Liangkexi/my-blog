@@ -15,15 +15,14 @@ enableRobotsTXT = true
 
   customHeadHTML = """
     <style>
-      /* Ensure custom social SVGs never overflow their container */
+      /* Keep all social icons (injected svg or img) uniform */
       .gk-social-icons-list .gk-social-icon a {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 24px;
-        height: 24px;
       }
-      .gk-social-icons-list .gk-social-icon img {
+      .gk-social-icons-list .gk-social-icon img,
+      .gk-social-icons-list .gk-social-icon svg {
         width: 24px;
         height: 24px;
         max-width: 24px;
