@@ -13,6 +13,26 @@ enableRobotsTXT = true
   footer = "LiangKX"
   showBackToTopButton = true
 
+  customHeadHTML = """
+    <style>
+      /* Ensure custom social SVGs never overflow their container */
+      .gk-social-icons-list .gk-social-icon a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+      }
+      .gk-social-icons-list .gk-social-icon img {
+        width: 24px;
+        height: 24px;
+        max-width: 24px;
+        max-height: 24px;
+        display: block;
+      }
+    </style>
+  """
+
   socialIcons = [
     {name = "github", url = "https://github.com/Liangkexi"},
     {name = "twitter", url = "https://twitter.com/LiangKx"},
