@@ -114,6 +114,20 @@ enableRobotsTXT = true
         max-height: 24px;
         display: block;
       }
+
+      /* Ensure social SVGs follow hover color (some icons hardcode fill) */
+      .gk-social-icons-list .gk-social-icon svg {
+        fill: currentColor;
+      }
+      .gk-social-icons-list .gk-social-icon svg * {
+        fill: currentColor !important;
+      }
+      .gk-social-icons-list .gk-social-icon a {
+        color: inherit;
+      }
+      .gk-social-icons-list .gk-social-icon a:hover {
+        color: var(--accent-color);
+      }
     </style>
   """
 
