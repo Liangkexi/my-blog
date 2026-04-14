@@ -19,6 +19,12 @@ enableRobotsTXT = true
         font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
       }
 
+      /* Only change links inside article content (not list pages) */
+      .post-content a,
+      .post-content a:visited {
+        color: var(--accent-color) !important;
+      }
+
       /* Keep all social icons (injected svg or img) uniform */
       .gk-social-icons-list .gk-social-icon a {
         display: inline-flex;
