@@ -1,8 +1,49 @@
 baseURL = 'https://my-blog-bck.pages.dev/'
 languageCode = 'en-us'
-title = 'My Blog'
+title = 'LiangKX'
 theme = 'gokarna'
+enableEmoji = true
+enableRobotsTXT = true
 
 [params]
-  footer = "My Blog"
-  description = "My personal blog"
+  avatarURL = "/images/avatar.png"
+  avatarAltText = "LiangKX"
+  avatarSize = "size-m"
+  description = "世界和平贡献者"
+  footer = "LiangKX"
+  showBackToTopButton = true
+
+  socialIcons = [
+    {name = "github", url = "https://github.com/Liangkexi"}
+  ]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "<span data-feather='home'></span>"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Posts"
+    pre = "<span data-feather='book'></span>"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Tags"
+    pre = "<span data-feather='tag'></span>"
+    url = "/tags/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "github"
+    pre = "<span data-feather='github'></span>"
+    url = "https://github.com/Liangkexi"
+    weight = 4
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
+    ordered = false
