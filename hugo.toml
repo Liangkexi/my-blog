@@ -9,6 +9,7 @@ enableRobotsTXT = true
   avatarURL = "/images/avatar.png"
   avatarAltText = "LiangKX"
   avatarSize = "size-m"
+  dateFormat = "1月2日"
   description = """
 从小就喜欢吹牛，花毕生养成的习惯难以改变。
 
@@ -70,10 +71,11 @@ enableRobotsTXT = true
       }
 
       /* Render newlines in home description */
-      .home-about h2 {
+      .home-about .home-description {
         white-space: pre-line;
         color: inherit;
         opacity: 0.7;
+        font-weight: 400;
       }
 
       /* Only change links inside article content (not list pages) */
