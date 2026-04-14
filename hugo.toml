@@ -10,7 +10,8 @@ enableRobotsTXT = true
   avatarAltText = "LiangKX"
   avatarSize = "size-m"
   description = """
-从小就喜欢吹牛，花了毕生养成的习惯难以改变
+从小就喜欢吹牛，花毕生养成的习惯难以改变。
+
 世界和平贡献者
 """
   footer = "LiangKX"
@@ -23,14 +24,56 @@ enableRobotsTXT = true
         localStorage.setItem('theme-preference', 'light');
       }
     </script>
+    <script>
+      (function () {
+        const STORAGE_KEY = 'theme-preference';
+        const COLORS = {
+          light: { accent: '#3451b2' },
+          dark: { accent: '#a0a9f3', darkPrimaryRgb: '28, 28, 32' } // #1c1c20
+        };
+
+        function getTheme() {
+          const t = localStorage.getItem(STORAGE_KEY);
+          return (t === 'dark' || t === 'light') ? t : 'light';
+        }
+
+        function applyThemeVars() {
+          const theme = getTheme();
+          const root = document.documentElement;
+
+          root.style.setProperty('--accent-color', COLORS[theme].accent);
+          if (theme === 'dark') {
+            root.style.setProperty('--dark-primary-color', COLORS.dark.darkPrimaryRgb);
+          } else {
+            root.style.removeProperty('--dark-primary-color');
+          }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          applyThemeVars();
+          document.querySelectorAll('.dark-theme-toggle').forEach(el => {
+            el.addEventListener('click', () => {
+              // wait for theme-preference to update
+              setTimeout(applyThemeVars, 0);
+            }, { capture: true });
+          });
+        });
+      })();
+    </script>
     <style>
+      :root {
+        --accent-color: #3451b2; /* light default */
+      }
+
       html {
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
+        font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, "Noto Sans", "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
       }
 
       /* Render newlines in home description */
       .home-about h2 {
         white-space: pre-line;
+        color: inherit;
+        opacity: 0.7;
       }
 
       /* Only change links inside article content (not list pages) */
@@ -39,12 +82,22 @@ enableRobotsTXT = true
         color: var(--accent-color) !important;
       }
 
+      .post-content a:hover {
+        color: var(--accent-color) !important;
+      }
+
+      /* Article content typography */
+      .post-content {
+        font-size: 0.92rem;
+        line-height: 1.00;
+      }
+
       /* Post title font size overrides */
       .post-title .post-link {
-        font-size: 0.95rem !important;
+        font-size: 0.85rem !important;
       }
       .post-title .post-date {
-        font-size: 0.85rem !important;
+        font-size: 0.75rem !important;
       }
 
       /* Keep all social icons (injected svg or img) uniform */
