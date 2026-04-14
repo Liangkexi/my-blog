@@ -25,6 +25,14 @@ enableRobotsTXT = true
         color: var(--accent-color) !important;
       }
 
+      /* Post title font size overrides */
+      .post-title .post-link {
+        font-size: 0.95rem !important;
+      }
+      .post-title .post-date {
+        font-size: 0.85rem !important;
+      }
+
       /* Keep all social icons (injected svg or img) uniform */
       .gk-social-icons-list .gk-social-icon a {
         display: inline-flex;
