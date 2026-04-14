@@ -58,7 +58,7 @@ enableRobotsTXT = true
 
   socialIcons = [
     {name = "github", url = "https://github.com/Liangkexi"},
-    {name = "twitter", url = "https://twitter.com/LiangKx"},
+    {name = "x", url = "https://twitter.com/LiangKx"},
     {name = "netease-cloud-music", url = "https://y.music.163.com/m/user?id=425691033&dlt=0846&app_version=8.10.10"}
   ]
 
