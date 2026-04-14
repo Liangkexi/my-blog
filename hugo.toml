@@ -1,3 +1,8 @@
 baseURL = 'https://my-blog-bck.pages.dev/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+languageCode = 'en-us'
+title = 'My Blog'
+theme = 'gokarna'
+
+[params]
+  footer = "My Blog"
+  description = "My personal blog"
