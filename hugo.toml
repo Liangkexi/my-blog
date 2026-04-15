@@ -25,42 +25,6 @@ enableRobotsTXT = true
         localStorage.setItem('theme-preference', 'light');
       }
     </script>
-    <script>
-      (function () {
-        const STORAGE_KEY = 'theme-preference';
-        const COLORS = {
-          light: { accent: '#3451b2' },
-          dark: { accent: '#a0a9f3', darkPrimaryRgb: '28, 28, 32' } // #1c1c20
-        };
-
-        function getTheme() {
-          const t = localStorage.getItem(STORAGE_KEY);
-          return (t === 'dark' || t === 'light') ? t : 'light';
-        }
-
-        function applyThemeVars() {
-          const theme = getTheme();
-          const root = document.documentElement;
-
-          root.style.setProperty('--accent-color', COLORS[theme].accent);
-          if (theme === 'dark') {
-            root.style.setProperty('--dark-primary-color', COLORS.dark.darkPrimaryRgb);
-          } else {
-            root.style.removeProperty('--dark-primary-color');
-          }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-          applyThemeVars();
-          document.querySelectorAll('.dark-theme-toggle').forEach(el => {
-            el.addEventListener('click', () => {
-              // wait for theme-preference to update
-              setTimeout(applyThemeVars, 0);
-            }, { capture: true });
-          });
-        });
-      })();
-    </script>
     <style>
       :root {
         --accent-color: #3451b2; /* light default */
