@@ -29,8 +29,8 @@ enableRobotsTXT = true
       (function () {
         const STORAGE_KEY = 'theme-preference';
         const COLORS = {
-          light: { accent: '#3451b2' },
-          dark: { accent: '#a0a9f3', darkPrimaryRgb: '28, 28, 32' } // #1c1c20
+          light: { accent: '#6C24E0' },
+          dark: { accent: '#B48EF0', darkPrimaryRgb: '28, 28, 32' } // #1c1c20
         };
 
         function getTheme() {
