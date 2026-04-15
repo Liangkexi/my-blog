@@ -11,7 +11,7 @@ enableRobotsTXT = true
   avatarSize = "size-m"
   dateFormat = "1月2日"
   description = """
-从小就喜欢吹牛，花毕生养成的习惯改不了
+从小就喜欢吹牛，花毕生养成的习惯改改不了
 
 世界和平贡献者
 """
@@ -29,8 +29,8 @@ enableRobotsTXT = true
       (function () {
         const STORAGE_KEY = 'theme-preference';
         const COLORS = {
-          light: { accent: '#6C24E0' },
-          dark: { accent: '#B48EF0', darkPrimaryRgb: '28, 28, 32' } // #1c1c20
+          light: { accent: '#3451b2' },
+          dark: { accent: '#a0a9f3', darkPrimaryRgb: '28, 28, 32' } // #1c1c20
         };
 
         function getTheme() {
