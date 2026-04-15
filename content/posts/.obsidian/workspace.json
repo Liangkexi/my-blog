@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "917c836f3dc653d2",
+    "id": "e233f413f98c2b72",
     "type": "split",
     "children": [
       {
-        "id": "98715cc35a019148",
+        "id": "28a3835ea1225a12",
         "type": "tabs",
         "children": [
           {
-            "id": "2c2156f602bfc6e7",
+            "id": "347fd36dcceda3d0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_index.md",
+                "file": "05-我又回来了.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "_index"
+              "title": "05-我又回来了"
             }
           }
         ]
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "a58deb728ff06bf1",
+    "id": "45e649049ebe4891",
     "type": "split",
     "children": [
       {
-        "id": "2c22549afea51630",
+        "id": "52737a543a0fcd9c",
         "type": "tabs",
         "children": [
           {
-            "id": "3be397a2631f5b84",
+            "id": "8b4acf7f1faa4f9a",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +48,7 @@
             }
           },
           {
-            "id": "d655aad875c056c1",
+            "id": "1d72ecc1efc0280d",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +65,7 @@
             }
           },
           {
-            "id": "adb4af44c08a04c3",
+            "id": "ea5e38e0658672ea",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -81,20 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "85ebc8911fecc373",
+    "id": "ff53aa07b78fcc31",
     "type": "split",
     "children": [
       {
-        "id": "da4f216743998e42",
+        "id": "d45eb31d873475ea",
         "type": "tabs",
         "children": [
           {
-            "id": "982561beadb499f1",
+            "id": "044609e1450fe051",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_index.md",
+                "file": "05-我又回来了.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "_index 的反向链接列表"
+              "title": "05-我又回来了 的反向链接列表"
             }
           },
           {
-            "id": "964e4cbbc9c9f619",
+            "id": "7de2a61106dba542",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_index.md",
+                "file": "05-我又回来了.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "_index 的出链列表"
+              "title": "05-我又回来了 的出链列表"
             }
           },
           {
-            "id": "5514462142754a78",
+            "id": "967509469c3f0f37",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -137,7 +137,7 @@
             }
           },
           {
-            "id": "d9e5344c846906ff",
+            "id": "c24562b1d84a956f",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -151,18 +151,18 @@
             }
           },
           {
-            "id": "5a44fef33178d43b",
+            "id": "ea3e82c1f4b987e2",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "_index.md",
+                "file": "05-我又回来了.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "_index 的大纲"
+              "title": "05-我又回来了 的大纲"
             }
           }
         ]
@@ -183,15 +183,6 @@
       "bases:新建数据库": false
     }
   },
-  "active": "2c2156f602bfc6e7",
-  "lastOpenFiles": [
-    "posts/05-我又回来了.md",
-    "_index.md",
-    "未命名 1.md",
-    "未命名.md",
-    "posts/04-都恢复了.md",
-    "posts/03-恢复了.md",
-    "posts/02-正值夏天.md",
-    "posts/01-开始篇章.md"
-  ]
+  "active": "347fd36dcceda3d0",
+  "lastOpenFiles": []
 }

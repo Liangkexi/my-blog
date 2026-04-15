@@ -20,9 +20,15 @@
     <ul class="gk-social-icons-list">
         {{ range .Site.Params.SocialIcons }}
         <li class="gk-social-icon">
+            {{ if hasPrefix .url "mailto:" }}
+            <a href="{{ .url }}" aria-label="Learn more on {{ .name }}">
+                <img src="{{ relURL "svg/icons/" }}{{ .name | lower }}.svg" alt="email" style="width: 24px; height: 24px; display: block;">
+            </a>
+            {{ else }}
             <a href="{{ .url }}" target="_blank" rel="{{ if .rel }}{{ .rel }} {{ end }}noopener noreferrer" aria-label="Learn more on {{ .name }}">
                 <img class="svg-inject" src="{{ relURL "svg/icons/" }}{{ .name | lower }}.svg" alt="">
             </a>
+            {{ end }}
         </li>
         {{ end }}
     </ul>

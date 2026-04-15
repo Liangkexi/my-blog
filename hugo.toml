@@ -141,25 +141,24 @@ enableRobotsTXT = true
   socialIcons = [
     {name = "github", url = "https://github.com/Liangkexi"},
     {name = "x", url = "https://twitter.com/LiangKx"},
-    {name = "netease-cloud-music", url = "https://y.music.163.com/m/user?id=425691033&dlt=0846&app_version=8.10.10"},
-    {name = "email", url = "mailto:lliangkexi@gmail.com"},
+    {name = "netease-cloud-music", url = "https://y.music.163.com/m/user?id=425691033&dlt=0846&app_version=8.10.10"}
   ]
 
 [menu]
   [[menu.main]]
-    name = "Home"
+    name = "主页"
     pre = "<span data-feather='home'></span>"
     url = "/"
     weight = 1
 
   [[menu.main]]
-    name = "Posts"
+    name = "博客"
     pre = "<span data-feather='book'></span>"
     url = "/posts/"
     weight = 2
 
   [[menu.main]]
-    name = "Tags"
+    name = "分类"
     pre = "<span data-feather='tag'></span>"
     url = "/tags/"
     weight = 3
