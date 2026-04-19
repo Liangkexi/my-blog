@@ -1,0 +1,211 @@
+{{ define "main" }}
+<style>
+  .portfolio-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .portfolio-heading {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  .portfolio-subtext {
+    opacity: 0.55;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .portfolio-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .pf-btn {
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    border: 1.5px solid rgba(128,128,128,0.25);
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-family: inherit;
+    color: inherit;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+
+  .pf-btn:hover,
+  .pf-btn.active {
+    background: var(--primary-color, #111);
+    color: #fff;
+    border-color: transparent;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1.4rem;
+  }
+
+  .pf-card {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(128,128,128,0.12);
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .pf-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+  }
+
+  .pf-card-img {
+    height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+
+  .bg-purple { background: linear-gradient(140deg, #e4d8f8 0%, #cdd5f7 100%); }
+  .bg-peach  { background: linear-gradient(140deg, #fde8d2 0%, #f8d8c4 100%); }
+  .bg-mint   { background: linear-gradient(140deg, #d2f5e6 0%, #c6f0ec 100%); }
+  .bg-sky    { background: linear-gradient(140deg, #d2e8f8 0%, #c4d8f4 100%); }
+  .bg-rose   { background: linear-gradient(140deg, #f8d4d8 0%, #f4c8d4 100%); }
+  .bg-gold   { background: linear-gradient(140deg, #f8eed2 0%, #f4e4c4 100%); }
+
+  .pf-card-body {
+    padding: 1rem 1.15rem 1.15rem;
+  }
+
+  .pf-card-meta {
+    font-size: 0.72rem;
+    opacity: 0.45;
+    margin-bottom: 0.45rem;
+    letter-spacing: 0.02em;
+  }
+
+  .pf-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .pf-card-desc {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    line-height: 1.6;
+    margin-bottom: 0.85rem;
+  }
+
+  .pf-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pf-card-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .pf-tag {
+    font-size: 0.7rem;
+    padding: 0.12rem 0.45rem;
+    border-radius: 5px;
+    background: rgba(128,128,128,0.1);
+  }
+
+  .pf-arrow {
+    opacity: 0.35;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  .pf-card[data-hidden="true"] {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="portfolio-wrap">
+  <h1 class="portfolio-heading">{{ .Title }}</h1>
+  <p class="portfolio-subtext">{{ .Description }}</p>
+
+  {{/* Collect unique categories */}}
+  {{ $categories := slice }}
+  {{ range .Pages }}
+    {{ $cat := .Params.category | default "" }}
+    {{ if and $cat (not (in $categories $cat)) }}
+      {{ $categories = $categories | append $cat }}
+    {{ end }}
+  {{ end }}
+
+  <div class="portfolio-filters">
+    <button class="pf-btn active" data-filter="all">全部</button>
+    {{ range $categories }}
+    <button class="pf-btn" data-filter="{{ . }}">{{ . }}</button>
+    {{ end }}
+  </div>
+
+  <div class="portfolio-grid">
+    {{ range .Pages }}
+    {{ $bg := .Params.bgColor | default "purple" }}
+    <a class="pf-card" href="{{ .Permalink }}" data-category="{{ .Params.category }}">
+      <div class="pf-card-img bg-{{ $bg }}">{{ .Params.emoji }}</div>
+      <div class="pf-card-body">
+        <div class="pf-card-meta">{{ .Params.category }} · {{ .Params.year }}</div>
+        <div class="pf-card-title">{{ .Title }}</div>
+        <div class="pf-card-desc">{{ .Description }}</div>
+        <div class="pf-card-footer">
+          <div class="pf-card-tags">
+            {{ range .Params.techTags }}
+            <span class="pf-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+          <span class="pf-arrow">→</span>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var btns = document.querySelectorAll('.pf-btn');
+    var cards = document.querySelectorAll('.pf-card');
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filter = btn.getAttribute('data-filter');
+
+        btns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        cards.forEach(function (card) {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.removeAttribute('data-hidden');
+          } else {
+            card.setAttribute('data-hidden', 'true');
+          }
+        });
+      });
+    });
+  })();
+</script>
+{{ end }}

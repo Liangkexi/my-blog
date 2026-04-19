@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="post container">
+  <div class="post-header-section">
+    <h1>{{ .Params.emoji }} {{ .Title }}</h1>
+    <small role="doc-subtitle">{{ .Description }}</small>
+    <p class="post-date">
+      {{ .Params.category }} · {{ .Params.year }}
+    </p>
+    <ul class="post-tags">
+      {{ range .Params.techTags }}
+      <li class="post-tag">{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ if .Site.Params.ShowBackToTopButton }}
+    {{ partial "back-to-top.html" . }}
+  {{ end }}
+</div>
+{{ end }}

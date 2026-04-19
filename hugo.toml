@@ -127,6 +127,12 @@ enableRobotsTXT = true
     url = "/tags/"
     weight = 3
 
+  [[menu.main]]
+    name = "作品集"
+    pre = "<span data-feather='box'></span>"
+    url = "/portfolio/"
+    weight = 4
+
 [markup]
   [markup.tableOfContents]
     startLevel = 1
