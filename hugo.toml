@@ -1,4 +1,4 @@
-baseURL = 'https://liangkx.com/'
+baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
 title = 'LiangKX'
 theme = 'gokarna'
@@ -111,7 +111,7 @@ enableRobotsTXT = true
       }
       .post-tags .post-tag {
         border: 1.5px solid rgba(128, 128, 128, 0.25) !important;
-        border-radius: 999px !important;
+        border-radius: 10px !important;
         background: transparent;
         font-size: 0.82rem !important;
         padding: 0.3rem 1rem !important;
@@ -146,6 +146,82 @@ enableRobotsTXT = true
       .post-tags .post-tag:hover a,
       .post-tags .post-tag:hover a .tag-posts-count {
         color: #fff;
+      }
+
+      /* Blog list: hover gray background on each row */
+      .list-posts .post-title {
+        margin: 4px 0 !important;
+        padding: 10px 14px;
+        border-radius: 10px;
+        transition: background 0.15s ease;
+      }
+      /* Title takes full row width (theme's 73% cap would wrap prematurely on mobile) */
+      .list-posts .post-title .post-link {
+        width: 100% !important;
+        display: block;
+        word-break: break-word;
+      }
+      .list-posts .post-title:hover {
+        background: rgba(128, 128, 128, 0.1);
+      }
+      /* Desktop: flex row so hover bg ends right after the date */
+      @media (min-width: 820px) {
+        .list-posts .post-title {
+          display: flex !important;
+          justify-content: space-between;
+          align-items: baseline;
+          gap: 1rem;
+        }
+        .list-posts .post-title .post-link {
+          width: auto !important;
+          display: inline-block;
+          flex: 1 1 auto;
+          min-width: 0;
+        }
+        .list-posts .post-title .post-date {
+          flex-shrink: 0;
+        }
+      }
+
+      /* Dark theme override: stone / 灰褐 tone */
+      html[data-theme="dark"] {
+        --dark-primary-color: 14, 13, 13;     /* rgb(14, 13, 13) stone-900 主背景 */
+        --dark-secondary-color: #292524;      /* stone-800 代码块/表头 */
+        --dark-tertiary-color: #57534e;       /* stone-600 分隔线/行内 code */
+        --dark-text-color: #e7e5e4;           /* stone-200 正文文字 */
+      }
+      html[data-theme="dark"] body {
+        background-color: rgb(var(--dark-primary-color));
+      }
+      /* Custom hover bg in dark mode */
+      html[data-theme="dark"] .list-posts .post-title:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      html[data-theme="dark"] .post-tags .post-tag {
+        border-color: rgba(255, 255, 255, 0.18) !important;
+      }
+      html[data-theme="dark"] .post-tags .post-tag:hover {
+        background: #fff;
+        color: #1c1917;
+      }
+      html[data-theme="dark"] .post-tags .post-tag:hover a,
+      html[data-theme="dark"] .post-tags .post-tag:hover a .tag-posts-count {
+        color: #1c1917;
+      }
+      /* Portfolio filter buttons in dark mode */
+      html[data-theme="dark"] .pf-btn {
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      html[data-theme="dark"] .pf-btn:hover,
+      html[data-theme="dark"] .pf-btn.active {
+        background: #fff;
+        color: #1c1917;
+      }
+      html[data-theme="dark"] .pf-card {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      html[data-theme="dark"] .pf-tag {
+        background: rgba(255, 255, 255, 0.08);
       }
     </style>
   """
