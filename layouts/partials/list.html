@@ -1,0 +1,29 @@
+<div class="container list-posts">
+
+    <h1 class="list-title">{{ i18n .Name }}</h1>
+
+    {{ if eq .Section "posts" }}
+    {{ if gt (len $.Site.Taxonomies.tags) 0 }}
+    <ul class="post-tags list-page-tags">
+        {{ range $.Site.Taxonomies.tags.ByCount }}
+        <li class="post-tag">
+            <a href="{{ .Page.RelPermalink }}">
+                <div class="tag-name">{{ .Name }}</div>
+                <div class="tag-posts-count">{{ .Count }}</div>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ end }}
+    {{ end }}
+
+    {{ range (where .Pages "Params.type" "post" ).GroupByDate "2006" }}
+
+    <h2 class="posts-year">{{ .Key }}</h2>
+
+    {{- range .Pages -}}
+        {{- partial "list-posts.html" . -}}
+    {{ end }}
+    {{ end }}
+
+</div>

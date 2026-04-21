@@ -1,4 +1,37 @@
 {{ define "main" }}
+
+{{/* Nested project list: render project overview + child articles */}}
+{{ if not .Parent.IsHome }}
+<div class="post container portfolio-project">
+  <div class="post-header-section">
+    <h1>{{ .Params.emoji }} {{ .Title }}</h1>
+    {{ with .Description }}<small role="doc-subtitle">{{ . }}</small>{{ end }}
+    <p class="post-date">
+      {{ with .Params.category }}{{ . }}{{ end }}{{ if and .Params.category .Params.year }} · {{ end }}{{ with .Params.year }}{{ . }}{{ end }}
+    </p>
+    {{ with .Params.techTags }}
+    <ul class="post-tags">
+      {{ range . }}<li class="post-tag">{{ . }}</li>{{ end }}
+    </ul>
+    {{ end }}
+  </div>
+
+  {{ with .Content }}
+  <div class="post-content">{{ . }}</div>
+  {{ end }}
+
+  {{ $children := .Pages.ByDate }}
+  {{ if $children }}
+  <div class="post-content">
+    <h2 class="posts-year">文章</h2>
+    {{ range $children }}{{ partial "list-posts.html" . }}{{ end }}
+  </div>
+  {{ end }}
+
+  {{ if .Site.Params.ShowBackToTopButton }}{{ partial "back-to-top.html" . }}{{ end }}
+</div>
+{{ else }}
+
 <style>
   .portfolio-wrap {
     max-width: 960px;
@@ -208,4 +241,5 @@
     });
   })();
 </script>
+{{ end }}
 {{ end }}

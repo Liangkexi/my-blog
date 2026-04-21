@@ -99,6 +99,54 @@ enableRobotsTXT = true
       .gk-social-icons-list .gk-social-icon a:hover {
         color: var(--accent-color);
       }
+
+      /* Unified pill-style tags (blog list / post / portfolio) */
+      .post-tags {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .post-tags .post-tag {
+        border: 1.5px solid rgba(128, 128, 128, 0.25) !important;
+        border-radius: 999px !important;
+        background: transparent;
+        font-size: 0.82rem !important;
+        padding: 0.3rem 1rem !important;
+        margin: 0 !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: background 0.18s, color 0.18s, border-color 0.18s;
+      }
+      .post-tags .post-tag a {
+        padding: 0 !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: inherit;
+      }
+      .post-tags .post-tag a .tag-name,
+      .post-tags .post-tag a .tag-posts-count {
+        padding: 0 !important;
+        display: inline;
+      }
+      .post-tags .post-tag a .tag-posts-count {
+        background: transparent !important;
+        opacity: 0.5;
+        font-size: 0.78rem;
+      }
+      .post-tags .post-tag:hover {
+        background: #111;
+        color: #fff;
+        border-color: transparent !important;
+      }
+      .post-tags .post-tag:hover a,
+      .post-tags .post-tag:hover a .tag-posts-count {
+        color: #fff;
+      }
     </style>
   """
 
@@ -122,13 +170,7 @@ enableRobotsTXT = true
     weight = 2
 
   [[menu.main]]
-    name = "分类"
-    pre = "<span data-feather='tag'></span>"
-    url = "/tags/"
-    weight = 3
-
-  [[menu.main]]
-    name = "作品集"
+    name = "仓库"
     pre = "<span data-feather='box'></span>"
     url = "/portfolio/"
     weight = 4

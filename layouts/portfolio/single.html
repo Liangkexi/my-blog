@@ -1,16 +1,22 @@
 {{ define "main" }}
 <div class="post container">
   <div class="post-header-section">
-    <h1>{{ .Params.emoji }} {{ .Title }}</h1>
-    <small role="doc-subtitle">{{ .Description }}</small>
+    <h1>{{ with .Params.emoji }}{{ . }} {{ end }}{{ .Title }}</h1>
+    {{ with .Description }}<small role="doc-subtitle">{{ . }}</small>{{ end }}
+    {{ if or .Params.category .Params.year }}
     <p class="post-date">
-      {{ .Params.category }} · {{ .Params.year }}
+      {{ with .Params.category }}{{ . }}{{ end }}{{ if and .Params.category .Params.year }} · {{ end }}{{ with .Params.year }}{{ . }}{{ end }}
     </p>
+    {{ else if not .IsPage }}
+    {{/* no-op */}}
+    {{ else }}
+    <p class="post-date">{{ .Date.Format .Site.Params.dateFormat }}</p>
+    {{ end }}
+    {{ with .Params.techTags }}
     <ul class="post-tags">
-      {{ range .Params.techTags }}
-      <li class="post-tag">{{ . }}</li>
-      {{ end }}
+      {{ range . }}<li class="post-tag">{{ . }}</li>{{ end }}
     </ul>
+    {{ end }}
   </div>
 
   <div class="post-content">
